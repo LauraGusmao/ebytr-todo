@@ -1,0 +1,17 @@
+{
+	"env": {
+		"browser": false,
+		"node": true,
+		"jest": true,
+		"es2021": true
+	},
+	"extends": [
+		"trybe-backend"
+	],
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"rules": {
+		"sonarjs/no-duplicate-string": ["error", 5]
+	}
+}
