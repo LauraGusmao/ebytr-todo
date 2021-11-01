@@ -1,6 +1,6 @@
 const usersModel = require('../models/users');
 
-const createUser = async (username, password) => {
+const registerUser = async (username, password) => {
   const existingUser = await usersModel.findUser(username);
 
   if (existingUser) {
@@ -21,5 +21,5 @@ const createUser = async (username, password) => {
 // deleteUser
 
 module.exports = {
-  createUser,
+  registerUser,
 };
