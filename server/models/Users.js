@@ -2,8 +2,7 @@ const connection = require('./connection');
 
 const registerUser = async (username, password) => {
   const newUser = await connection()
-    .then((db) => db.collection('users').insetOne({ username, password }))
-    .then((result) => result.ops[0].username);
+    .then((db) => db.collection('users').insertOne({ username, password }));
   
   return newUser;
 };
