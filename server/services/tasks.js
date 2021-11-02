@@ -1,7 +1,7 @@
 const tasksModel = require('../models/tasks');
 
-const createTask = async (description, status, responsible) => {
-  const newTask = await tasksModel.createTask(description, status, responsible);
+const createTask = async (title, description, status, responsible) => {
+  const newTask = await tasksModel.createTask(title, description, status, responsible);
 
   return newTask;
 };
@@ -33,8 +33,8 @@ const findTaskById = async (id) => {
   return task;
 };
 
-const updateTask = async (id, description, status, responsible) => {
-  const updatedTask = await tasksModel.updateTask(id, description, status, responsible);
+const updateTask = async (id, title, description, status, responsible) => {
+  const updatedTask = await tasksModel.updateTask(id, title, description, status, responsible);
 
   return updatedTask;
 };

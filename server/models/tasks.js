@@ -3,12 +3,12 @@ const connection = require('./connection');
 
 const { getDate } = require('../utils');
 
-const createTask = async (description, status, responsible) => {
+const createTask = async (title, description, status, responsible) => {
   const date = getDate();
 
   const newTask = await connection()
     .then((db) => db.collection('tasks')
-    .insertOne({ description, status, responsible, date }));
+    .insertOne({ title, description, status, responsible, date }));
   
   return newTask;
 };
@@ -41,13 +41,13 @@ const findTaskById = async (id) => {
   return task;
 };
 
-const updateTask = async (id, description, status, responsible) => {
+const updateTask = async (id, title, description, status, responsible) => {
   if (!ObjectId.isValid(id)) return null;
 
   await connection().then((db) => db.collection('tasks')
-    .updateOne({ _id: ObjectId(id) }, { $set: { description, status, responsible } }));
+    .updateOne({ _id: ObjectId(id) }, { $set: { title, description, status, responsible } }));
 
-  return { _id: id, description, status, responsible };
+  return { _id: id, title, description, status, responsible };
 };
 
 const deleteTask = async (id) => {

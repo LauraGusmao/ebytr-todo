@@ -4,13 +4,13 @@ const { tasksService } = require('../services');
 const { validateTaskBody } = require('../utils');
 
 const createTask = rescue(async (req, res, next) => {
-  const { description, status } = req.body;
+  const { title, description, status } = req.body;
   const { username } = req.user;
 
   const { error } = validateTaskBody(req.body);
   if (error) return next(error);
 
-  await tasksService.createTask(description, status, username);
+  await tasksService.createTask(title, description, status, username);
   
   return res.status(201).json({ message: 'New task successfully created' });
 });
@@ -41,13 +41,13 @@ const findTaskById = rescue(async (req, res, next) => {
 
 const updateTask = rescue(async (req, res, next) => {
   const { id } = req.params;
-  const { description, status } = req.body;
+  const { title, description, status } = req.body;
   const { username } = req.user;
 
   const { error } = validateTaskBody(req.body);
   if (error) return next(error);
 
-  const updatedTask = await tasksService.updateTask(id, description, status, username);
+  const updatedTask = await tasksService.updateTask(id, title, description, status, username);
 
   return res.status(200).json(updatedTask);
 });
