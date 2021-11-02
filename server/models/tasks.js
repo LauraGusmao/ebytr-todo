@@ -6,11 +6,11 @@ const { getDate } = require('../utils');
 const createTask = async (description, status, responsible) => {
   const date = getDate();
 
-  const newUser = await connection()
+  const newTask = await connection()
     .then((db) => db.collection('tasks')
     .insertOne({ description, status, responsible, date }));
   
-  return newUser;
+  return newTask;
 };
 
 const getAllTasks = async () => {
@@ -41,7 +41,7 @@ const findTaskById = async (id) => {
   return task;
 };
 
-const updateTasks = async (id, description, status, responsible) => {
+const updateTask = async (id, description, status, responsible) => {
   if (!ObjectId.isValid(id)) return null;
 
   await connection().then((db) => db.collection('tasks')
@@ -64,6 +64,6 @@ module.exports = {
   getAllTasks,
   getUsersTasks,
   findTaskById,
-  updateTasks,
+  updateTask,
   deleteTask,
 };
