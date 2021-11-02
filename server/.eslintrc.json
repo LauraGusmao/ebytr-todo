@@ -12,6 +12,14 @@
 		"ecmaVersion": "latest"
 	},
 	"rules": {
-		"sonarjs/no-duplicate-string": ["error", 5]
+		"sonarjs/no-duplicate-string": ["error", 5],
+		"max-lines-per-function": [
+      "error",
+      {
+        "max": 25,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ]
 	}
 }
