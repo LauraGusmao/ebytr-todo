@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const { loginRouter, usersRouter } = require('./routes');
+const { loginRouter, usersRouter, tasksRouter } = require('./routes');
 const { handleError } = require('./middlewares');
 
 const app = express();
@@ -20,6 +20,7 @@ app.use(
 
 app.use('/login', loginRouter);
 app.use('/users', usersRouter);
+app.use('/tasks', tasksRouter);
 
 app.use(handleError);
 

@@ -6,28 +6,30 @@ const { JWT_SECRET } = process.env;
 
 module.exports = async (req, _res, next) => {
   const token = req.headers.authorization;
+  
   if (!token) {
-    const err = new Error('Token not found');
-    err.code = 'unauthorized';
-    return next({ error: { err } });
+    const error = new Error('Token not found');
+    error.code = 'unauthorized';
+    return next({ error });
   }
 
   try {
     const payload = jwt.verify(token, JWT_SECRET);
 
-    const user = await usersModel.findUser(payload.data.username);
+    const user = await usersModel.findUser(payload.username);
+    
     if (!user) {
-      const err = new Error('User matching token not found');
-      err.code = 'unauthorized';
-      return next({ error: { err } });
+      const error = new Error('User matching token not found');
+      error.code = 'unauthorized';
+      return next({ error });
     }
 
     req.user = user;
 
     next();
-  } catch (err) {
-    err.code = 'unauthorized';
+  } catch (error) {
+    error.code = 'unauthorized';
 
-    return next({ error: { err } });
+    return next({ error });
   }
 };
