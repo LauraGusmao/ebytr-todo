@@ -15,7 +15,7 @@ module.exports = async (req, _res, next) => {
   try {
     const payload = jwt.verify(token, JWT_SECRET);
 
-    const user = await usersModel.findUser(payload.padStart.username);
+    const user = await usersModel.findUser(payload.data.username);
     if (!user) {
       const err = new Error('User matching token not found');
       err.code = 'unauthorized';
