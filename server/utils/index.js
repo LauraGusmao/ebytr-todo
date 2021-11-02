@@ -1,7 +1,9 @@
-const validateBody = require('./validateBody');
+const validateUserBody = require('./validateUserBody');
 const getDate = require('./getDate');
+const validateTaskBody = require('./validateTaskBody');
 
 module.exports = {
-  validateBody,
+  validateUserBody,
   getDate,
+  validateTaskBody,
 };

@@ -23,7 +23,7 @@ const findTaskById = async (id) => {
 
   if (!task) {
     return {
-      err: {
+      error: {
         code: 'invalid_data',
         message: 'Wrong id format',
       },
@@ -44,7 +44,7 @@ const deleteTask = async (id) => {
 
   if (!task) {
     return {
-      err: {
+      error: {
         code: 'invalid_data',
         message: 'Wrong id format',
       },
