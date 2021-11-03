@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const { loginRouter, usersRouter, tasksRouter } = require('./src/routes');
-const { handleError } = require('./src/middlewares');
+const { loginRouter, usersRouter, tasksRouter } = require('./routes');
+const { handleError } = require('../src/middlewares');
 
 const app = express();
 app.use(express.json());
@@ -24,6 +24,4 @@ app.use('/tasks', tasksRouter);
 
 app.use(handleError);
 
-app.listen(PORT, () => {
-  console.log(`Listening to port ${PORT}`);
-});
+module.exports = app;
