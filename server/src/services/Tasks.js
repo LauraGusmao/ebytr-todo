@@ -1,4 +1,4 @@
-const tasksModel = require('../models/tasks');
+const tasksModel = require('../models/Tasks');
 
 const createTask = async (title, description, status, responsible) => {
   const newTask = await tasksModel.createTask(title, description, status, responsible);
