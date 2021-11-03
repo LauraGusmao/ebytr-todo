@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const registerUser = async (username, password) => {
-  await axios.post('http://localhost:8080/users/new', { username, password })
-    .then((resonse) => console.log(resonse))
-    .catch((error) => console.log(error));
+  const register = await axios.post('http://localhost:8080/users/new', { username, password });
+
+  return register;
 };
 
 export const login = async (username, password) => {
