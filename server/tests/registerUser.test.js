@@ -23,7 +23,7 @@ describe('Register new user', function () {
       response = await chai.request(server)
         .post('/users/new')
         .send({
-          username: 'lauragus',
+          username: 'lauragus1',
           password: 'abc123',
         });
     });
