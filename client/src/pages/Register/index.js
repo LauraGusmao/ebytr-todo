@@ -4,9 +4,11 @@ import { registerUser } from '../../services/apiRequests';
 import './style.css';
 
 function Register() {
-  const [usernameRegister, setUsernameRegister] = useState('');
-  const [passwordRegister, setPasswordRegister] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [success, setSuccess] = useState(false);
+  const usernameFormat = /^[0-9a-zA-Z]+$/;
+  const minLength = 5;
 
   useEffect(() => {
     const TWO_SEC = 2000;
@@ -18,15 +20,17 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      const register = await registerUser(usernameRegister, passwordRegister);
+      const register = await registerUser(username, password);
 
       if (register.data.message) {
         setSuccess(true);
-        setUsernameRegister('');
-        setPasswordRegister('');
+        setUsername('');
+        setPassword('');
       }
     } catch (error) {
       console.log(error.response.data);
+      // eslint-disable-next-line no-alert
+      alert('Invalid data');
     }
   };
 
@@ -40,9 +44,11 @@ function Register() {
               type="text"
               className="form-control"
               id="username"
-              value={ usernameRegister }
-              onChange={ (event) => setUsernameRegister(event.target.value) }
+              value={ username }
+              onChange={ (event) => setUsername(event.target.value) }
             />
+            <div className="form-text mb-0">Min of 5 alphanumeric</div>
+            <div className="form-text mt-0">characters</div>
           </label>
         </div>
         <div className="mb-3">
@@ -52,14 +58,17 @@ function Register() {
               type="password"
               className="form-control"
               id="password"
-              value={ passwordRegister }
-              onChange={ (event) => setPasswordRegister(event.target.value) }
+              value={ password }
+              onChange={ (event) => setPassword(event.target.value) }
             />
+            <div className="form-text">Min of 5 characters</div>
           </label>
         </div>
         <button
           type="button"
           className="btn btn-primary"
+          disabled={ !usernameFormat.test(username) || username.length < minLength
+            || password.length < minLength }
           onClick={ handleRegister }
         >
           Submit

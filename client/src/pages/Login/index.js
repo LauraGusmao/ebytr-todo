@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+
 import { login } from '../../services/apiRequests';
 import './style.css';
 
@@ -7,14 +8,18 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const usernameFormat = /^[0-9a-zA-Z]+$/;
+  const minLength = 5;
 
   const handleLogin = async () => {
     try {
       const token = await login(username, password);
       localStorage.setItem('todo-token', token.data.token);
       setRedirect(true);
-    } catch (error) {
-      console.log(error.response.data);
+    } catch (err) {
+      console.log(err.response.data);
+      // eslint-disable-next-line no-alert
+      alert('Invalid data');
     }
   };
 
@@ -46,6 +51,9 @@ function Login() {
         <button
           type="button"
           className="btn btn-primary"
+          disabled={ !usernameFormat.test(username)
+            || username.length < minLength
+            || password.length < minLength }
           onClick={ handleLogin }
         >
           Login
