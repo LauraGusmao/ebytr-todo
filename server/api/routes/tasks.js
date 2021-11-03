@@ -1,7 +1,7 @@
 const express = require('express');
 
-const { tasksController } = require('../controllers');
-const { validateJWT } = require('../middlewares');
+const { tasksController } = require('../../src/controllers');
+const { validateJWT } = require('../../src/middlewares');
 
 const router = express.Router();
 
