@@ -15,7 +15,7 @@ function MyTasks() {
     };
     getTasks();
   }, []);
-  console.log(tasks);
+
   return (
     <>
       <NavBar />

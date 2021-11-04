@@ -1,27 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { PropTypes } from 'prop-types';
 
 import NavBar from '../../components/NavBar';
-import { createTask } from '../../services/apiRequests';
-import './style.css';
+import { findTaskById, updateTask } from '../../services/apiRequests';
 
-function CreateTasks() {
+function EditTasks(props) {
   const [taskTitle, setTaskTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskStatus, setTaskStatus] = useState('');
 
-  const handleCreateTask = async () => {
-    await createTask(taskTitle, taskDescription, taskStatus);
+  useEffect(() => {
+    const { match: { params: { id } } } = props;
 
-    setTaskTitle('');
-    setTaskDescription('');
-    setTaskStatus('');
+    const getTask = async () => {
+      const data = await findTaskById(id);
+      setTaskTitle(data.title);
+      setTaskDescription(data.description);
+      setTaskStatus(data.status);
+    };
+    getTask();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleEditTask = async () => {
+    const { match: { params: { id } } } = props;
+
+    await updateTask(id, taskTitle, taskDescription, taskStatus);
+
+    props.history.push('/tasks');
   };
 
   return (
     <>
       <NavBar />
       <div className="container">
-        <h3>Create New Task</h3>
+        <h3>Edit Task</h3>
         <form>
           <div className="form-group mb-3">
             <label className="label" htmlFor="tasktitle">
@@ -95,9 +108,9 @@ function CreateTasks() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={ handleCreateTask }
+              onClick={ handleEditTask }
             >
-              Create Task
+              Update Task
             </button>
           </div>
         </form>
@@ -106,4 +119,15 @@ function CreateTasks() {
   );
 }
 
-export default CreateTasks;
+EditTasks.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
+export default EditTasks;

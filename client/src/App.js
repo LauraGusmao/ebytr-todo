@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import MyTasks from './pages/MyTasks';
 import CreateTask from './pages/CreateTask';
+import EditTask from './pages/EditTask';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route exact path="/register" component={ Register } />
         <Route exact path="/tasks" component={ MyTasks } />
         <Route path="/tasks/create" component={ CreateTask } />
-        {/* <Route path="/tasks/edit/:id" component={ EditTask } /> */}
+        <Route path="/tasks/edit/:id" component={ EditTask } />
       </Switch>
     </div>
   );
