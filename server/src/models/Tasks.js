@@ -41,13 +41,13 @@ const findTaskById = async (id) => {
   return task;
 };
 
-const updateTask = async (id, title, description, status, responsible) => {
+const updateTask = async (id, title, description, status) => {
   if (!ObjectId.isValid(id)) return null;
 
   await connection().then((db) => db.collection('tasks')
-    .updateOne({ _id: ObjectId(id) }, { $set: { title, description, status, responsible } }));
+    .updateOne({ _id: ObjectId(id) }, { $set: { title, description, status } }));
 
-  return { _id: id, title, description, status, responsible };
+  return { _id: id, title, description, status };
 };
 
 const deleteTask = async (id) => {

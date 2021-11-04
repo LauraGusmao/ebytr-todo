@@ -33,8 +33,8 @@ const findTaskById = async (id) => {
   return task;
 };
 
-const updateTask = async (id, title, description, status, responsible) => {
-  const updatedTask = await tasksModel.updateTask(id, title, description, status, responsible);
+const updateTask = async (id, title, description, status) => {
+  const updatedTask = await tasksModel.updateTask(id, title, description, status);
 
   return updatedTask;
 };

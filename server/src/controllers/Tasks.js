@@ -42,12 +42,12 @@ const findTaskById = rescue(async (req, res, next) => {
 const updateTask = rescue(async (req, res, next) => {
   const { id } = req.params;
   const { title, description, status } = req.body;
-  const { username } = req.user;
+  // const { username } = req.user;
 
   const { error } = validateTaskBody(req.body);
   if (error) return next(error);
 
-  const updatedTask = await tasksService.updateTask(id, title, description, status, username);
+  const updatedTask = await tasksService.updateTask(id, title, description, status);
 
   return res.status(200).json(updatedTask);
 });
