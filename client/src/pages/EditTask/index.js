@@ -117,6 +117,7 @@ function EditTasks(props) {
               type="button"
               className="btn btn-primary"
               onClick={ handleEditTask }
+              disabled={ !taskTitle || !taskDescription }
             >
               Update
             </button>
