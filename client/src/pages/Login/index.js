@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import { login } from '../../services/apiRequests';
+import logo from '../../assets/default.svg';
 import './style.css';
 
 function Login() {
@@ -24,7 +25,9 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-page">
+      <img className="login-logo" src={ logo } alt="Ebyty logo" />
+      <p className="text-center fs-3">Welcome to our task manager</p>
       <form className="login-form">
         <div className="mb-3">
           <label htmlFor="username" className="form-label">

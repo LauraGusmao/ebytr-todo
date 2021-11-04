@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import { registerUser } from '../../services/apiRequests';
+import logo from '../../assets/default.svg';
 import './style.css';
 
 function Register() {
@@ -36,6 +38,8 @@ function Register() {
 
   return (
     <div>
+      <img className="register-logo" src={ logo } alt="Ebyty logo" />
+      <p className="text-center fs-3">Sign up</p>
       <form className="register-form">
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
@@ -75,7 +79,7 @@ function Register() {
         </button>
         { success && <div className="form-text">User successfully registered</div> }
         <div className="form-text mt-4">
-          Already a user yet?
+          Already a user?
           {' '}
           <Link to="/">Login here</Link>
           .

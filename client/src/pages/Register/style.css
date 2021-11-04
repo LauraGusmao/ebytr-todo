@@ -4,7 +4,14 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  margin: 5vw auto;
+  margin: 3vw auto;
   padding: 20px;
-  width: 350px;
+  width: 320px;
+}
+
+.register-logo {
+  display: block;
+  margin: 20px auto;
+  padding-top: 50px;
+  width: 150px;
 }
