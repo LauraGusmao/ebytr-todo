@@ -5,10 +5,12 @@ import './style.css';
 
 function Tasks() {
   return (
-    <div>
+    <>
       <NavBar />
-      Hello
-    </div>
+      <div className="container">
+        Hello MyTasks
+      </div>
+    </>
   );
 }
 

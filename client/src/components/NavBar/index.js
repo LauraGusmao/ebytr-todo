@@ -9,7 +9,7 @@ function NavBar() {
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <img className="nav-logo" src={ logo } alt="Ebytr logo" />
-        <Link to="/tasks" className="navbar-brand">Task Manager</Link>
+        <div className="navbar-brand">Task Manager</div>
         <div className="collpase navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">

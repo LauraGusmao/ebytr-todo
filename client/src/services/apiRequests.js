@@ -18,3 +18,10 @@ export const getUsersTasks = async () => {
 
   return tasks.data;
 };
+
+export const createTask = async (title, description, status) => {
+  const newTask = await axios.post('http://localhost:8080/tasks/new', { title, description, status },
+    { headers: { Authorization: localStorage.getItem('todo-token') } });
+
+  return newTask.data;
+};

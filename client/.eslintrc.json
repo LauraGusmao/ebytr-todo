@@ -11,6 +11,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "react/jsx-max-depth": [2, { "max": 5 }]
+    "react/jsx-max-depth": [2, { "max": 6 }]
   }
 }
