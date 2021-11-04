@@ -13,10 +13,14 @@ export const login = async (username, password) => {
 };
 
 export const getUsersTasks = async () => {
-  const tasks = await axios.get('http://localhost:8080/tasks/user',
-    { headers: { Authorization: localStorage.getItem('todo-token') } });
+  try {
+    const tasks = await axios.get('http://localhost:8080/tasks/user',
+      { headers: { Authorization: localStorage.getItem('todo-token') } });
 
-  return tasks.data;
+    return tasks.data;
+  } catch (error) {
+    console.log(error.response.data);
+  }
 };
 
 export const createTask = async (title, description, status) => {

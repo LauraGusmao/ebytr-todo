@@ -72,8 +72,8 @@ function CreateTasks() {
                   type="radio"
                   name="statusOptions"
                   id="statusInProgress"
-                  value="InProgress"
-                  checked={ taskStatus === 'InProgress' }
+                  value="In progress"
+                  checked={ taskStatus === 'In progress' }
                   onChange={ (event) => setTaskStatus(event.target.value) }
                 />
                 In Progress
