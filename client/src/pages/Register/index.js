@@ -24,7 +24,7 @@ function Register() {
     try {
       const register = await registerUser(username, password);
 
-      if (register.data.message) {
+      if (register.message) {
         setSuccess(true);
         setUsername('');
         setPassword('');
@@ -38,7 +38,7 @@ function Register() {
 
   return (
     <div>
-      <img className="register-logo" src={ logo } alt="Ebyty logo" />
+      <img className="register-logo" src={ logo } alt="Ebytr logo" />
       <p className="text-center fs-3">Sign up</p>
       <form className="register-form">
         <div className="mb-3">

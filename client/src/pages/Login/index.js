@@ -26,7 +26,7 @@ function Login() {
 
   return (
     <div className="login-page">
-      <img className="login-logo" src={ logo } alt="Ebyty logo" />
+      <img className="login-logo" src={ logo } alt="Ebytr logo" />
       <p className="text-center fs-3">Welcome to our task manager</p>
       <form className="login-form">
         <div className="mb-3">

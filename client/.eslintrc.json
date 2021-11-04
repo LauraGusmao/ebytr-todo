@@ -9,5 +9,8 @@
       "jsx": true
     },
     "sourceType": "module"
+  },
+  "rules": {
+    "react/jsx-max-depth": [2, { "max": 5 }]
   }
 }
