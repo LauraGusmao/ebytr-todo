@@ -54,3 +54,12 @@ export const updateTask = async (id, title, description, status) => {
     console.log('erro', error.response.data);
   }
 };
+
+export const deleteTask = async (id) => {
+  try {
+    await axios.delete(`http://localhost:8080/tasks/delete/${id}`,
+      { headers: { Authorization: localStorage.getItem(tokenKey) } });
+  } catch (error) {
+    console.log('erro', error.response.data);
+  }
+};

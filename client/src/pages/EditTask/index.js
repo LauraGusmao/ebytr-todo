@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import NavBar from '../../components/NavBar';
-import { findTaskById, updateTask } from '../../services/apiRequests';
+import { findTaskById, updateTask, deleteTask } from '../../services/apiRequests';
 
 function EditTasks(props) {
   const [taskTitle, setTaskTitle] = useState('');
@@ -26,6 +26,14 @@ function EditTasks(props) {
     const { match: { params: { id } } } = props;
 
     await updateTask(id, taskTitle, taskDescription, taskStatus);
+
+    props.history.push('/tasks');
+  };
+
+  const handleDelete = async () => {
+    const { match: { params: { id } } } = props;
+
+    await deleteTask(id);
 
     props.history.push('/tasks');
   };
@@ -110,7 +118,14 @@ function EditTasks(props) {
               className="btn btn-primary"
               onClick={ handleEditTask }
             >
-              Update Task
+              Update
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger ms-3"
+              onClick={ handleDelete }
+            >
+              Delete
             </button>
           </div>
         </form>
