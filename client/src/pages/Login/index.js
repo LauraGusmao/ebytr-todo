@@ -18,7 +18,7 @@ function Login() {
       localStorage.setItem('todo-token', token.data.token);
       setRedirect(true);
     } catch (err) {
-      console.log(err.response.data);
+      console.log(err.response);
       // eslint-disable-next-line no-alert
       alert('Invalid data');
     }
