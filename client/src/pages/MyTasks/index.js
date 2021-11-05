@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 
+import TasksContext from '../../context/TasksContext';
 import NavBar from '../../components/NavBar';
 import TaskItem from '../../components/TaskItem';
-import { getUsersTasks } from '../../services/apiRequests';
 import './style.css';
 
 function MyTasks() {
-  const [tasks, setTasks] = useState([]);
+  const { tasks,
+    getTasks,
+    sortByStatusAsc,
+    sortByStatusDesc,
+    sortByTaskAsc,
+    sortByTaskDesc,
+    sortByDateAsc,
+    sortByDateDesc,
+  } = useContext(TasksContext);
 
   useEffect(() => {
-    const getTasks = async () => {
-      const data = await getUsersTasks();
-      setTasks(data);
-    };
     getTasks();
   }, []);
 
@@ -24,10 +29,22 @@ function MyTasks() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Task</th>
+              <th>
+                Task
+                <TiArrowSortedDown onClick={ sortByTaskAsc } />
+                <TiArrowSortedUp onClick={ sortByTaskDesc } />
+              </th>
               <th>Description</th>
-              <th>Status</th>
-              <th>Date</th>
+              <th>
+                Status
+                <TiArrowSortedDown onClick={ sortByStatusAsc } />
+                <TiArrowSortedUp onClick={ sortByStatusDesc } />
+              </th>
+              <th>
+                Date
+                <TiArrowSortedDown onClick={ sortByDateAsc } />
+                <TiArrowSortedUp onClick={ sortByDateDesc } />
+              </th>
               <th>Action</th>
             </tr>
           </thead>
