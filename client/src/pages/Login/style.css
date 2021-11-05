@@ -1,0 +1,21 @@
+/* .login-page {
+  background-color: #247DC8;
+} */
+
+.login-form {
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 3vw auto;
+  padding: 20px;
+  width: 300px;
+}
+
+.login-logo {
+  display: block;
+  margin: 20px auto;
+  padding-top: 50px;
+  width: 150px;
+}
