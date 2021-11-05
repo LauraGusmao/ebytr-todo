@@ -26,7 +26,7 @@ function NavBar() {
                 </Link>
               </li>
             </ul>
-            <Link className="" to="/" onClick={ logout }>Logout</Link>
+            <Link to="/" onClick={ logout }>Logout</Link>
           </div>
         </div>
       </nav>
