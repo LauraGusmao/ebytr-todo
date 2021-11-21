@@ -5,8 +5,8 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const MONGO_DB_URL = 'mongodb://127.0.0.1:27017/ebyrt-todo';
-const DB_NAME = 'ebyrt-todo';
+const MONGO_DB_URL = 'mongodb://127.0.0.1:27017/ebytr-todo';
+const DB_NAME = 'ebytr-todo';
 
 let db = null;
 
