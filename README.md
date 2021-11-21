@@ -23,7 +23,9 @@ With the app users can read, add, edit and delete tasks. Users can also sort tas
 
 ## Installation and usage
 
-Firstly clone this repository
+Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+
+Then, clone this repository:
 
 ```bash
 # clone repository
@@ -33,7 +35,7 @@ git clone git@github.com:LauraGusmao/ebytr-todo.git
 cd ebytr-todo
 ```
 
-Use the package manager [npm](https://www.npmjs.com/) to install app.
+Use the package manager [npm](https://www.npmjs.com/) to install and run the app.
 
 ```bash
 # change directory to server
@@ -55,3 +57,7 @@ npm install
 # execute application
 npm start
 ```
+
+## Demonstration 
+
+<img src="demo.gif" alt="My Wallet demo gif" />
