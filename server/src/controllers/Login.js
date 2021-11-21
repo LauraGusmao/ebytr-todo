@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { loginService } = require('../services');
 const { validateUserBody } = require('../utils');
 
-const { JWT_SECRET } = process.env;
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 module.exports = rescue(async (req, res, next) => {
   const { username, password } = req.body;

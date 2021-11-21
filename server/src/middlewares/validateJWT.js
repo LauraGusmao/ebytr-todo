@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const usersModel = require('../models/Users');
 
-const { JWT_SECRET } = process.env;
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 module.exports = async (req, _res, next) => {
   const token = req.headers.authorization;

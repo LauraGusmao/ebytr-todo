@@ -4,7 +4,7 @@ module.exports = (err, _req, res, _next) => {
       err: { code: 'invalid_data', message: err.details[0].message },
     });
   }
-
+  console.log(err);
   let statusCode;
 
   switch (err.error.code) {
