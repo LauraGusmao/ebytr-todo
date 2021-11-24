@@ -23,7 +23,7 @@ With the app users can read, add, edit and delete tasks. Users can also sort tas
 
 ## Installation and usage
 
-Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [MongoDB](https://www.mongodb.com/).
 
 Then, clone this repository:
 
